@@ -3,8 +3,17 @@ from jinja2 import Environment, FileSystemLoader, select_autoescape
 import datetime
 import pandas
 import collections
+import argparse
 
-excel_drinks_data = pandas.read_excel('wine3.xlsx', na_values=['N/A', 'NA'], keep_default_na=False)
+
+parser = argparse.ArgumentParser(description='Путь к файлу')
+parser.add_argument('url', help='Ваш файл')
+args = parser.parse_args()
+
+user_input = args.url
+
+
+excel_drinks_data = pandas.read_excel(user_input, na_values=['N/A', 'NA'], keep_default_na=False)
 drinks_data = excel_drinks_data.to_dict(orient='records')
 drinks_collection = collections.defaultdict(list)
 
