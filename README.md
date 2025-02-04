@@ -12,7 +12,6 @@ pip install -r requirements.txt
 
 ## Запуск
 1. Cкачать код с Github [https://github.com/devmanorg/wine](https://github.com/devmanorg/wine).
-
 2.Запустите сайт
 
 ```
