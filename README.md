@@ -13,7 +13,7 @@ pip install -r requirements.txt
 ## Запуск
 1. Cкачать код с Github [https://github.com/Sssanchous/wine](https://github.com/Sssanchous/wine).
 
-2.Запустите сайт
+2. Запустите сайт
 ```
 python main.py 'путь к exсel файлу с напитками'
 ```
