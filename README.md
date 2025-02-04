@@ -11,14 +11,16 @@ pip install -r requirements.txt
 ```
 
 ## Запуск
-1. Cкачать код с Github [https://github.com/Sssanchous/wine](https://github.com/Sssanchous/wine).
+1. Cкачать код с Github
+[https://github.com/Sssanchous/wine](https://github.com/Sssanchous/wine).
 
-2. Запустите сайт
+3. Запустите сайт
 ```
 python main.py 'путь к exсel файлу с напитками'
 ```
 
-3. Перейдите на сайт по адресу [http://127.0.0.1:8000](http://127.0.0.1:8000).
+3. Перейдите на сайт по адресу
+[http://127.0.0.1:8000](http://127.0.0.1:8000).
 
 
 ## Цели проекта
