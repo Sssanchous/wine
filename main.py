@@ -5,10 +5,10 @@ import pandas
 import collections
 
 excel_wine_data = pandas.read_excel('wine3.xlsx', na_values=['N/A', 'NA'], keep_default_na=False)
-excel_data_wine_dict = excel_wine_data.to_dict(orient='records')
+wine_data = excel_wine_data.to_dict(orient='records')
 wine_dict = collections.defaultdict(list)
 
-for wine in excel_data_wine_dict:
+for wine in wine_data:
     wine_dict[wine['Категория']].append(wine)
 
 
