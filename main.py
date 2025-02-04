@@ -19,7 +19,7 @@ delta = end_date-start_date
 final_year = int(delta.days/day_in_year)
 
 
-def year_check(year):
+def check_year(year):
 
     last_two_num = year % 100
     last_num = year % 10
@@ -42,7 +42,7 @@ env = Environment(
 template = env.get_template('template.html')
 
 rendered_page = template.render(
-    year_title=f'{final_year} {year_check(final_year)}',
+    year_title=f'{final_year} {check_year(final_year)}',
     white_wines=wine_dict["Белые вина"],
     red_wines=wine_dict["Красные вина"],
     drinks=wine_dict["Напитки"]
