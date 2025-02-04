@@ -12,7 +12,7 @@ pip install -r requirements.txt
 
 ## Запуск
 1. Cкачать код с Github
-[https://github.com/Sssanchous/wine](https://github.com/Sssanchous/wine).
+   [https://github.com/Sssanchous/wine](https://github.com/Sssanchous/wine).
 
 3. Запустите сайт
 ```
