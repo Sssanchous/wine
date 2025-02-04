@@ -4,12 +4,17 @@ import datetime
 import pandas
 import collections
 
-excel_wine_data = pandas.read_excel('wine3.xlsx', na_values=['N/A', 'NA'], keep_default_na=False)
-wine_data = excel_wine_data.to_dict(orient='records')
-wine_dict = collections.defaultdict(list)
+excel_drinks_data = pandas.read_excel('wine3.xlsx', na_values=['N/A', 'NA'], keep_default_na=False)
+drinks_data = excel_drinks_data.to_dict(orient='records')
+drinks_collection = collections.defaultdict(list)
 
-for wine in wine_data:
-    wine_dict[wine['Категория']].append(wine)
+for wine in drinks_data:
+    drinks_collection[wine['Категория']].append(wine)
+
+type_drink = []
+
+for drink in drinks_collection:
+    type_drink.append(drink)
 
 
 start_date = datetime.datetime(year=1920, month=1, day=1)
@@ -43,9 +48,9 @@ template = env.get_template('template.html')
 
 rendered_page = template.render(
     year_title=f'{final_year} {check_year(final_year)}',
-    white_wines=wine_dict["Белые вина"],
-    red_wines=wine_dict["Красные вина"],
-    drinks=wine_dict["Напитки"]
+    white_wines=drinks_collection[type_drink[0]],
+    drinks=drinks_collection[type_drink[1]],
+    red_wines=drinks_collection[type_drink[2]]
 )
 
 with open('index.html', 'w', encoding="utf8") as file:
