@@ -23,26 +23,22 @@ def check_year(year):
 
 def main():
 
-    parser = argparse.ArgumentParser(description='Путь к файлу')
-    parser.add_argument('url', help='Ваш файл')
+    parser = argparse.ArgumentParser(description='Путь к файлу с напитками')
+    parser.add_argument('file', nargs='?', help='Ваш файл', default='wine3.xlsx')
     args = parser.parse_args()
 
-    user_input = args.url
-
-    excel_drinks_data = pandas.read_excel(user_input, na_values=['N/A', 'NA'], keep_default_na=False)
+    excel_drinks_data = pandas.read_excel(args.file, na_values=['N/A', 'NA'], keep_default_na=False)
     drinks_data = excel_drinks_data.to_dict(orient='records')
     drinks_collection = collections.defaultdict(list)
 
     for wine in drinks_data:
         drinks_collection[wine['Категория']].append(wine)
 
-    type_drink = []
+    drink_categories = [drink for drink in drinks_collection]
 
-    for drink in drinks_collection:
-        type_drink.append(drink)
 
     start_date = datetime.datetime(year=1920, month=1, day=1)
-    end_date = datetime.datetime(year=2023, month=1, day=1)
+    end_date = datetime.datetime.today()
     day_in_year = 365
     delta = end_date-start_date
     final_year = int(delta.days/day_in_year)
@@ -56,9 +52,8 @@ def main():
 
     rendered_page = template.render(
         year_title=f'{final_year} {check_year(final_year)}',
-        white_wines=drinks_collection[type_drink[0]],
-        drinks=drinks_collection[type_drink[1]],
-        red_wines=drinks_collection[type_drink[2]]
+        drinks_collection=drinks_collection,
+        categories = drinks_collection.keys()
     )
 
     with open('index.html', 'w', encoding="utf8") as file:
