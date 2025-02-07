@@ -34,8 +34,6 @@ def main():
     for wine in drinks_data:
         drinks_collection[wine['Категория']].append(wine)
 
-    drink_categories = [drink for drink in drinks_collection]
-
 
     start_date = datetime.datetime(year=1920, month=1, day=1)
     end_date = datetime.datetime.today()
