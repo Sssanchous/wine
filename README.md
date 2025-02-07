@@ -10,12 +10,6 @@ Python3 должен быть уже установлен.
 pip install -r requirements.txt
 ```
 
-## Установка `openpyxl`
-Для работы с Excel файлами необходимо установить зависимость `openpyxl`. Для этого выполните команду:
-```
-pip install openpyxl
-```
-
 ## Запуск
 1. Cкачать код с Github
    [https://github.com/Sssanchous/wine](https://github.com/Sssanchous/wine).
